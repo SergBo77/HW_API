@@ -15,12 +15,13 @@ def index():
         weather = get_weather(city)
         news = get_news()
         quotable = get_quotable()
-    return render_template("index.html", weather=weather, news=news, quotable=quotable)
+    return render_template("index.html", weather=weather, news=news, quotable=quotable, translate_text=translate_text)
 
 def translate_text(text, dest_language='ru'):
     translator = Translator()
     translated_text = translator.translate(text, dest=dest_language)
     return translated_text.text
+
 def get_quotable():
     # api_key = "bca1c0489a6a8bebf9a512c7411aa5c7"
     url = "https://api.quotable.io/random"
